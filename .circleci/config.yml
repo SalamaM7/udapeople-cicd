@@ -304,7 +304,7 @@ jobs:
       - install_ansible
       - install_nodejs
       - add_ssh_keys:
-          fingerprint: ["68:3e:77:4b:71:9a:5e:e3:50:27:68:ae:a9:89:34:3f"]
+          fingerprints: ["68:3e:77:4b:71:9a:5e:e3:50:27:68:ae:a9:89:34:3f"]
       - attach_workspace:
           at: ~/
       - restore_cache:
@@ -365,9 +365,9 @@ jobs:
             FRONTEND_WEBSITE="http//:udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3-website.${AWS_DEFAULT_REGION}.amazonaws.com"
             if curl -s $FRONTEND_WEBSITE | grep "Welcome"   
             then
-              exit 1
+              exit 0
             else
-              exit 2
+              exit 1
             fi 
       - destroy_environment
       - revert_migrations
