@@ -263,7 +263,7 @@ jobs:
 
   deploy-frontend:
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/base:stable
     steps:
       - checkout
       - install_awscli
@@ -297,7 +297,7 @@ jobs:
 
   deploy-backend:
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/base:stable
     steps:
       - checkout
       - install_awscli
@@ -369,7 +369,8 @@ jobs:
             else
               exit 2
             fi 
-
+      - destroy_environment
+      - revert_migrations
 #   cloudfront-update:
 #     docker:
 #       # Docker image here that supports AWS CLI
