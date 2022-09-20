@@ -38,6 +38,8 @@
   
     - setup:
 
-  roles: 
-    - deploy\task
+  roles:
+    - deploy
+    - configure-server
+    - configure-prometheus-node-exporter
     
