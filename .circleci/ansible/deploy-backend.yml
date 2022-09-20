@@ -44,6 +44,10 @@
         path: ~/backend-app
         state: directory
 
+    - copy:
+        src: backend/artifact.tar.gz
+        dest: ~/backend-app
+    
     - name: "Unarchive backend files"
       unarchive:
         src: artifact.tar.gz
