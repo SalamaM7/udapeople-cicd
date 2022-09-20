@@ -2,10 +2,10 @@ version: 2.1
 
 commands:
   install_awscli:
-    description: Install AWS CLI
+    description: Install AWS CLI v2
     steps:
       - run:
-          name: Install AWS CLI
+          name: Install AWS CLI v2
           command: |
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
@@ -170,7 +170,7 @@ jobs:
 
   deploy-infrastructure:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:13.8.0
     steps:
       - checkout
       - install_awscli      
@@ -217,7 +217,7 @@ jobs:
 
   configure-infrastructure:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:13.8.0
     steps:
       - checkout
       - install_ansible
@@ -266,7 +266,7 @@ jobs:
 
   deploy-frontend:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:13.8.0
     steps:
       - checkout
       - install_awscli
@@ -300,7 +300,7 @@ jobs:
 
   deploy-backend:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:13.8.0
     steps:
       - checkout
       - install_awscli
@@ -341,7 +341,7 @@ jobs:
 
   smoke-test:
     docker:
-      - image: cimg/base:stable 
+      - image: cimg/node:13.8.0 
     steps:
       - checkout
       - install_awscli
