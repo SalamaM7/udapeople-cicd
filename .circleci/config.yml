@@ -334,8 +334,8 @@ jobs:
             cat inventory.txt
             ansible-playbook -i inventory.txt deploy-backend.yml
             
-      # - destroy_environment
-      # - revert_migrations 
+      - destroy_environment
+      - revert_migrations 
 
   smoke-test:
     docker:
@@ -366,7 +366,7 @@ jobs:
             FRONTEND_WEBSITE="http//:udapeople-${CIRCLE_WORKFLOW_ID:0:7}.s3-website.${AWS_DEFAULT_REGION}.amazonaws.com"
             if curl -s $FRONTEND_WEBSITE | grep "Welcome"   
             then
-              exit 0
+              exit 1
             else
               exit 1
             fi 
