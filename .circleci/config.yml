@@ -18,7 +18,7 @@ commands:
           name: Install Ansible
           command: |
             sudo apt remove ansible
-            sudo apt --purge autoremove
+            sudo apt --purge autoremove 
             sudo apt update
             sudo apt upgrade
             sudo apt -y install software-properties-common 
