@@ -17,9 +17,11 @@ commands:
       - run:
           name: Install Ansible
           command: |
-            sudo apt -y install software-properties-common 
+            sudo apt -y update
+            sudo apt install -y software-properties-common 
             sudo add-apt-repository --yes --update ppa:ansible/ansible
-            sudo apt -y install ansible 
+            sudo apt install -y ansible 
+
 
   install_nodejs:
     description: Install Nodejs 13
